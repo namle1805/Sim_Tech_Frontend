@@ -48,7 +48,11 @@ const Navbar: React.FC = () => {
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-20">
-          <img src={logo} alt="Company Logo" className="h-8" />
+          <img
+            src={logo}
+            alt="Company Logo"
+            className="h-8 transition-opacity duration-300 hover:opacity-50"
+          />
         </div>
         <div className="flex flex-1 justify-center items-center">
           {currentItem && (
@@ -62,15 +66,15 @@ const Navbar: React.FC = () => {
           )}
         </div>
         <div className="flex items-center space-x-2">
-          <span className="text-black-500">
-            <BellDot />
-          </span>
-          <span className="text-black-500">
-            <Grip />
-          </span>
-          <span className="text-black-500">
-            <CircleUserRound />
-          </span>
+          <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
+          <BellDot />
+          </button>
+          <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
+          <Grip />
+          </button>
+          <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
+          <CircleUserRound />
+          </button>
         </div>
       </div>
     </nav>
@@ -78,3 +82,5 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
