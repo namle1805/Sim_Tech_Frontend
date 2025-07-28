@@ -7,12 +7,24 @@ import {
   UsersRound,
   Warehouse,
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { Tooltip } from "@mui/material";
 
-const Sidebar = () => {
+interface NavItem {
+  href: string;
+  icon: React.ElementType;
+  label: string;
+}
+
+interface SidebarProps {
+  collapsed: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { href: "/", icon: FileCog, label: "Item" },
     { href: "/template", icon: FileText, label: "Template" },
     { href: "/techlog-management", icon: FilePen, label: "Techlog Management" },
@@ -30,22 +42,60 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen w-[15%] text-[#65676b] flex flex-col border-r-2 border-gray-200 shadow-lg">
-      <nav className="flex-1">
-        {navItems.map(({ href, icon: Icon, label }) => (
-          <a
-            key={href}
-            href={href}
-            className={`flex items-center gap-x-5 p-5 rounded 
-              hover:bg-gray-300
+    <>
+      {!collapsed ? (
+        <div className="h-screen w-[15%] text-[#65676b] flex flex-col border-r-2 border-gray-200 shadow-lg">
+          {navItems.map(({ href, icon: Icon, label }) => (
+            <NavLink
+              key={href}
+              to={href}
+              className={`flex items-center gap-x-5 p-5 rounded
+              hover:bg-gray-200
               ${currentPath === href ? "bg-gray-300" : ""}`}
-          >
-            <Icon className="w-10 h-10 stroke-[1.5] w-[20%]" />
-            <span className="text-lg font-bold w-[80%]">{label}</span>
-          </a>
-        ))}
-      </nav>
-    </div>
+            >
+              <Icon className="w-10 h-10 stroke-[1.5] w-[20%]" />
+              <span className="text-lg font-bold w-[80%]">{label}</span>
+            </NavLink>
+          ))}
+        </div>
+      ) : (
+        <div className="h-screen w-[5%] text-[#65676b] flex flex-col border-r-2 border-gray-200 shadow-lg">
+          {navItems.map(({ href, icon: Icon, label }) => (
+            <Tooltip
+              key={href}
+              title={label}
+              placement="right"
+              arrow
+              slotProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: "white",
+                    color: "#65676b",
+                    fontWeight: 600,
+                    fontSize: "0.875rem",
+                    boxShadow: 3,
+                  },
+                },
+                arrow: {
+                  sx: {
+                    color: "white",
+                  },
+                },
+              }}
+            >
+              <NavLink
+                to={href}
+                className={`flex items-center justify-center p-5 rounded
+        hover:bg-gray-200
+        ${currentPath === href ? "bg-gray-300" : ""}`}
+              >
+                <Icon className="w-8 h-8 stroke-[1.5]" />
+              </NavLink>
+            </Tooltip>
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

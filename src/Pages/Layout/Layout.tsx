@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import { useState } from "react";
 
 const Layout = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
   return (
     <div className="h-screen flex flex-col">
       <div>
-        <Navbar />
+        <Navbar toggleSidebar={() => setIsSidebarCollapsed((prev) => !prev)} />
       </div>
       <div className="flex">
-        <Sidebar />
+        <Sidebar collapsed={isSidebarCollapsed} />
         <Outlet />
       </div>
     </div>
