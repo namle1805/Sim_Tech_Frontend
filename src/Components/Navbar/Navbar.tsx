@@ -12,11 +12,17 @@ import {
   Warehouse,
 } from "lucide-react";
 
-const Navbar = () => {
+interface NavItem {
+  href: string;
+  icon: React.ElementType;
+  label: string;
+}
+
+const Navbar: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { href: "/", icon: FileCog, label: "Item" },
     { href: "/template", icon: FileText, label: "Template" },
     { href: "/techlog-management", icon: FilePen, label: "Techlog Management" },
