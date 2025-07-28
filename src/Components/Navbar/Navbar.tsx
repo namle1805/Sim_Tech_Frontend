@@ -10,6 +10,7 @@ import {
   OctagonAlert,
   UsersRound,
   Warehouse,
+  PanelRight,
 } from "lucide-react";
 
 interface NavItem {
@@ -43,17 +44,25 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className="relative w-full p-6 shadow-lg"
+      className="relative w-full p-6 shadow-lg bg-white"
       style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-20">
-          <img
-            src={logo}
-            alt="Company Logo"
-            className="h-8 transition-opacity duration-300 hover:opacity-50"
-          />
-        </div>
+      <div className="flex items-center space-x-4">
+      <div className="p-3 rounded-full shadow-lg bg-white flex items-center justify-center"
+       style={{
+         background: "radial-gradient(circle, #ffffff 40%, #d4d4d4 100%)",
+         width: "50px",
+         height: "50px",
+       }}>
+      <PanelRight className="text-black w-6 h-6" />
+      </div>
+      <img
+      src={logo}
+      alt="Company Logo"
+      className="h-8 transition-opacity duration-300 hover:opacity-50"
+      />
+      </div>
         <div className="flex flex-1 justify-center items-center">
           {currentItem && (
             <a
@@ -67,13 +76,13 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex items-center space-x-2">
           <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
-          <BellDot />
+            <BellDot />
           </button>
           <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
-          <Grip />
+            <Grip />
           </button>
           <button className="p-2 rounded-full hover:bg-gray-200 transition duration-200">
-          <CircleUserRound />
+            <CircleUserRound />
           </button>
         </div>
       </div>
@@ -82,5 +91,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-
