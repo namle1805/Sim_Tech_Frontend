@@ -19,7 +19,11 @@ interface NavItem {
   label: string;
 }
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  toggleSidebar: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -48,21 +52,24 @@ const Navbar: React.FC = () => {
       style={{ boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}
     >
       <div className="flex items-center justify-between">
-      <div className="flex items-center space-x-4">
-      <div className="p-3 rounded-full shadow-lg bg-white flex items-center justify-center"
-       style={{
-         background: "radial-gradient(circle, #ffffff 40%, #d4d4d4 100%)",
-         width: "50px",
-         height: "50px",
-       }}>
-      <PanelRight className="text-black w-6 h-6" />
-      </div>
-      <img
-      src={logo}
-      alt="Company Logo"
-      className="h-8 transition-opacity duration-300 hover:opacity-50"
-      />
-      </div>
+        <div className="flex items-center space-x-4">
+          <div
+            onClick={toggleSidebar}
+            className="p-3 rounded-full shadow-lg bg-white flex items-center justify-center"
+            style={{
+              background: "radial-gradient(circle, #ffffff 40%, #d4d4d4 100%)",
+              width: "50px",
+              height: "50px",
+            }}
+          >
+            <PanelRight className="text-black w-6 h-6 transition-opacity duration-300 hover:opacity-40 cursor-pointer" />
+          </div>
+          <img
+            src={logo}
+            alt="Company Logo"
+            className="h-8 transition-opacity duration-300 hover:opacity-50 cursor-pointer"
+          />
+        </div>
         <div className="flex flex-1 justify-center items-center">
           {currentItem && (
             <a
