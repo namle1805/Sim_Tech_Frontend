@@ -6,7 +6,7 @@ import { useState } from "react";
 const Layout = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <div>
         <Navbar toggleSidebar={() => setIsSidebarCollapsed((prev) => !prev)} />
       </div>

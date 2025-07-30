@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
   return (
     <>
       {!collapsed ? (
-        <div className="h-screen w-[15%] text-[#65676b] flex flex-col border-r-2 border-gray-200 shadow-lg">
+        <div className="h-screen w-[200px] text-[#65676b] flex flex-col border-r-2 border-gray-200">
           {navItems.map(({ href, icon: Icon, label }) => (
             <NavLink
               key={href}
@@ -53,13 +53,15 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
               hover:bg-gray-200
               ${currentPath === href ? "bg-gray-300" : ""}`}
             >
-              <Icon className="w-10 h-10 stroke-[1.5] w-[20%]" />
-              <span className="text-lg font-bold w-[80%]">{label}</span>
+              <div className="w-[15%] flex justify-center">
+                <Icon className="w-6 h-6 stroke-[1.5]" />
+              </div>
+              <span className="text-lg font-bold">{label}</span>
             </NavLink>
           ))}
         </div>
       ) : (
-        <div className="h-screen w-[5%] text-[#65676b] flex flex-col border-r-2 border-gray-200 shadow-lg">
+        <div className="h-screen w-[70px] text-[#65676b] flex flex-col border-r-2 border-gray-200 ">
           {navItems.map(({ href, icon: Icon, label }) => (
             <Tooltip
               key={href}
@@ -89,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
         hover:bg-gray-200
         ${currentPath === href ? "bg-gray-300" : ""}`}
               >
-                <Icon className="w-8 h-8 stroke-[1.5]" />
+                <Icon className="w-6 h-6 stroke-[1.5]" />
               </NavLink>
             </Tooltip>
           ))}
