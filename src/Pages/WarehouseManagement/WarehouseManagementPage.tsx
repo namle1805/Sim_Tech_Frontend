@@ -1,5 +1,11 @@
+import WarehouseManagementTable from "../../Components/WarehouseManagement/WarehouseManagementTable";
+
 const WarehouseManagementPage = () => {
-  return <>Warehouse Management Page</>;
+  return (
+    <>
+      <WarehouseManagementTable />
+    </>
+  );
 };
 
 export default WarehouseManagementPage;
