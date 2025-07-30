@@ -42,6 +42,7 @@ const WarehouseCreateModal = (props: IProps) => {
             Create Warehouse
           </div>
         }
+        width="50%"
         open={openModalCreate}
         onOk={() => {
           form.submit();
@@ -77,7 +78,7 @@ const WarehouseCreateModal = (props: IProps) => {
         <Form
           form={form}
           name="basic"
-          style={{ maxWidth: 600, marginBottom: "2.5rem" }}
+          style={{ width: "100%", marginBottom: "2.5rem" }}
           onFinish={onFinish}
           autoComplete="off"
         >
@@ -89,7 +90,7 @@ const WarehouseCreateModal = (props: IProps) => {
             name="code"
             rules={[{ required: true, message: "Please input code!" }]}
           >
-            <Input />
+            <Input placeholder="Please input code" />
           </Form.Item>
 
           <Form.Item<FieldType>
@@ -102,7 +103,7 @@ const WarehouseCreateModal = (props: IProps) => {
               { required: true, message: "Please input warehouse name!" },
             ]}
           >
-            <Input />
+            <Input placeholder="Please input warehouse name" />
           </Form.Item>
         </Form>
         <Divider

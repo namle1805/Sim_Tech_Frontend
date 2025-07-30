@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
   return (
     <>
       {!collapsed ? (
-        <div className="h-screen w-[200px] text-[#65676b] flex flex-col border-r-2 border-gray-200">
+        <div className="min-h-[1300] w-[200px] text-[#65676b] flex flex-col border-r-2 border-gray-200">
           {navItems.map(({ href, icon: Icon, label }) => (
             <NavLink
               key={href}
@@ -61,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
           ))}
         </div>
       ) : (
-        <div className="h-screen w-[70px] text-[#65676b] flex flex-col border-r-2 border-gray-200 ">
+        <div className="min-h-[1300]  w-[70px] text-[#65676b] flex flex-col border-r-2 border-gray-200 ">
           {navItems.map(({ href, icon: Icon, label }) => (
             <Tooltip
               key={href}

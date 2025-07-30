@@ -1,5 +1,11 @@
+import ReportManagementTable from "../../Components/ReportManagement/ReportManagementTable";
+
 const ReportManagementPage = () => {
-  return <>Report Management Page</>;
+  return (
+    <>
+      <ReportManagementTable />
+    </>
+  );
 };
 
 export default ReportManagementPage;

@@ -56,6 +56,7 @@ const WarehouseUpdateModal = (props: IProps) => {
             Update Warehouse
           </div>
         }
+        width="50%"
         open={openModalUpdate}
         onOk={() => {
           form.submit();
@@ -88,7 +89,7 @@ const WarehouseUpdateModal = (props: IProps) => {
         <Form
           form={form}
           name="form-update"
-          style={{ maxWidth: 600 }}
+          style={{ width: "100%" }}
           onFinish={onFinish}
           autoComplete="off"
         >

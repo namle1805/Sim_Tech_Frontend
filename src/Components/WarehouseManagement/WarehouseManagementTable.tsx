@@ -39,6 +39,11 @@ const initialRows: IWarehouse[] = [
   { _id: "W3", code: "WH003", name: "Northern WH", status: true },
   { _id: "W4", code: "WH004", name: "Central WH", status: false },
   { _id: "W5", code: "WH005", name: "Southern WH", status: true },
+  { _id: "W6", code: "WH006", name: "HCM WH", status: true },
+  { _id: "W7", code: "WH007", name: "DN WH", status: true },
+  { _id: "W8", code: "WH008", name: "HN WH", status: true },
+  { _id: "W9", code: "WH009", name: "HP WH", status: true },
+  { _id: "W10", code: "WH0010", name: "CT WH", status: true },
 ];
 
 const WarehouseManagementTable = () => {
@@ -71,13 +76,17 @@ const WarehouseManagementTable = () => {
 
   return (
     <>
-      <div className="h-screen w-full flex flex-col p-6 bg-[#F6F6F6]">
+      <div className="min-h-[1300] w-full flex flex-col p-6 bg-[#F6F6F6]">
         {/* Add New */}
         <div className="w-full bg-white rounded-lg shadow-md px-4 py-2 flex justify-end mb-6">
           <Button
             variant="contained"
             startIcon={<Plus className="w-5 h-5" />}
-            style={{ backgroundColor: "#FF5353", borderRadius: "0.5rem" }}
+            style={{
+              backgroundColor: "#FF5353",
+              borderRadius: "0.5rem",
+              textTransform: "none",
+            }}
             className="hover:brightness-110 text-white"
             onClick={() => setOpenModalCreate(true)}
           >
@@ -159,8 +168,19 @@ const WarehouseManagementTable = () => {
         </div>
 
         {/* Table */}
-        <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer sx={{ maxHeight: 440 }}>
+        <Paper sx={{ width: "100%", overflow: "auto", minHeight: "600px" }}>
+          <TableContainer
+            sx={{
+              minHeight: "500px",
+              maxHeight: "calc(100vh - 200px)",
+              height: "100%",
+              overflowY: "auto", // Bật scroll khi vượt quá
+              scrollbarWidth: "none", // Firefox
+              "&::-webkit-scrollbar": {
+                display: "none", // Chrome, Safari
+              },
+            }}
+          >
             <Table stickyHeader aria-label="warehouse table">
               <TableHead>
                 <TableRow>
