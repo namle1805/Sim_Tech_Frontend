@@ -20,7 +20,7 @@ const ReportCloseModal = (props: IProps) => {
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     const { techlogCleared } = values;
     setIsSubmit(true);
-    console.log("Create warehouse values:", techlogCleared);
+    console.log("Close report values:", techlogCleared);
     setOpenModalClose(false);
     setIsSubmit(false);
   };

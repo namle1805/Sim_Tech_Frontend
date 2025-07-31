@@ -20,7 +20,7 @@ const ReportResponseModal = (props: IProps) => {
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     const { content } = values;
     setIsSubmit(true);
-    console.log("Create warehouse values:", content);
+    console.log("Response report values:", content);
     setOpenModalResponse(false);
     setIsSubmit(false);
   };
