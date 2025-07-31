@@ -84,12 +84,16 @@ const WarehouseUpdateModal = (props: IProps) => {
         maskClosable={false}
         confirmLoading={isSubmit}
       >
-        <Divider />
+        <Divider
+          style={{
+            borderTop: "1px solid rgba(0, 0, 0, 0.8)",
+          }}
+        />
 
         <Form
           form={form}
           name="form-update"
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginBottom: "2.5rem" }}
           onFinish={onFinish}
           autoComplete="off"
         >
@@ -124,6 +128,11 @@ const WarehouseUpdateModal = (props: IProps) => {
             <Input />
           </Form.Item>
         </Form>
+        <Divider
+          style={{
+            borderTop: "1px solid rgba(0, 0, 0, 0.8)",
+          }}
+        />
       </Modal>
     </>
   );
