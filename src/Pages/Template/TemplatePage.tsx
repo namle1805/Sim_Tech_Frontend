@@ -1,5 +1,11 @@
+import TemplateTable from "../../Components/Template/TemplateTable";
+
 const TemplatePage = () => {
-  return <>Template Page</>;
+  return (
+    <>
+      <TemplateTable />
+    </>
+  );
 };
 
 export default TemplatePage;

@@ -325,7 +325,7 @@ const ReportManagementTable = () => {
               },
             }}
           >
-            <Table stickyHeader aria-label="warehouse table">
+            <Table stickyHeader aria-label="report management table">
               <TableHead>
                 <TableRow>
                   {columns.map((column) => (
